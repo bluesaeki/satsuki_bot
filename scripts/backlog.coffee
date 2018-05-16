@@ -35,7 +35,7 @@ module.exports = (robot) ->
       else if body.createdUser.name in member_b
         message += menter_b
       else
-        message += "※担当が割り振られていない模様"
+        message += "※担当が割り振られていない模様\n\n"
 
       message += "lesson-frontにレビュー依頼が来たよ！\n"
       message += "[info][title]Backlogより[/title]"
