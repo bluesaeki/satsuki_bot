@@ -13,20 +13,20 @@ module.exports = (robot) ->
                 postFlag = true
 
     if !postFlag
-        robot.messageRoom room, "（・・・誰かが課題を更新したっぽい・・・）"
         res.end "OK"
         return false
     
     try
-      url = "#{backlogUrl}view/#{body.project.projectKey}-#{body.content.key_id}"
+        url = "#{backlogUrl}view/#{body.project.projectKey}-#{body.content.key_id}"
 
-      if body.content.comment?.id?
-          url += "#comment-#{body.content.comment.id}"
+        if body.content.comment?.id?
+            url += "#comment-#{body.content.comment.id}"
 
-      message = "[info][title]Backlogより[/title]"
-      message += "#{body.createdUser.name}さんによって課題が更新されましたよ！\n"
-      message += "[#{body.project.projectKey}-#{body.content.key_id}]"
-      message += "#{body.content.summary}\n"
+        message = "lesson-frontにレビュー依頼が来たよ！\n"
+        message += "[info][title]Backlogより[/title]"
+        message += "#{body.createdUser.name}さんによって課題が更新されました\n"
+        message += "[#{body.project.projectKey}-#{body.content.key_id}]"
+        message += "#{body.content.summary}\n"
 
       if body.content.comment?.content?
           message += "#{body.content.comment.content}\n"
