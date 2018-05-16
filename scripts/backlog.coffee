@@ -8,8 +8,8 @@ module.exports = (robot) ->
     postFlag = false
 
     for index in body.content.changes
-        if body.content.changes[index].field === "assigner"
-            if body.content.changes[index].new_value === usagi
+        if body.content.changes[index].field == "assigner"
+            if body.content.changes[index].new_value == usagi
                 postFlag = true
 
     if !postFlag
