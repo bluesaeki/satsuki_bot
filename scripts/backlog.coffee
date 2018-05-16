@@ -24,11 +24,12 @@ module.exports = (robot) ->
 
       if body.content.comment?.id?
           url += "#comment-#{body.content.comment.id}"
-
-      message = "[info][title]Backlogより[/title]"
-      message += "#{body.createdUser.name}さんによって#{label}されました\n"
-      message += "[#{body.project.projectKey}-#{body.content.key_id}]"
-      message += "#{body.content.summary}\n"
+        
+        message = "#{body}"
+    #   message = "[info][title]Backlogより[/title]"
+    #   message += "#{body.createdUser.name}さんによって#{label}されました\n"
+    #   message += "[#{body.project.projectKey}-#{body.content.key_id}]"
+    #   message += "#{body.content.summary}\n"
 
       if body.content.comment?.content?
           message += "#{body.content.comment.content}\n"
