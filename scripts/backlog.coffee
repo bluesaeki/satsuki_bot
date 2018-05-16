@@ -7,10 +7,15 @@ module.exports = (robot) ->
     usagi = "lesson-front"
     postFlag = false
 
+    for index in body.content.changes
+        if body.content.changes[index].field === "assigner"
+            if body.content.changes[index].new_value === usagi
+                postFlag = true
 
     if !postFlag
-        robot.messageRoom room, "キョエエエエエエ"
+        robot.messageRoom room, "（・・・誰かが課題を更新したっぽい・・・）"
         return false
+    
 
     try
       url = "#{backlogUrl}view/#{body.project.projectKey}-#{body.content.key_id}"
