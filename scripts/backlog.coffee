@@ -10,7 +10,8 @@ module.exports = (robot) ->
     mes = "test:"
 
     for index in body.content.changes
-        mes += body.content.changes[index].field
+        mes += "a"
+        # mes += body.content.changes[index].field
         # if body.content.changes[index].field == "assigner"
         #     if body.content.changes[index].new_value == usagi
         #         postFlag = true
@@ -19,6 +20,7 @@ module.exports = (robot) ->
 
     if !postFlag
         robot.messageRoom room, "（・・・誰かが課題を更新したっぽい・・・）"
+        res.end "OK"
         return false
     
 
