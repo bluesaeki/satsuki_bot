@@ -25,20 +25,20 @@ module.exports = (robot) ->
       if body.content.comment?.id?
           url += "#comment-#{body.content.comment.id}"
         
-        message = "ID: #{body.id}\n"
-        message += "noticeName: #{body.noticifications.user.name}\n"
-        message += "changed: #{body.content.changes[0].field}\n"
-        message += "changed: #{body.content.changes[0].new_value}\n"
-        message += "changed: #{body.content.changes[0].old_value}\n"
-        message += "changed: #{body.content.changes[0].type}\n"
-    #   message = "[info][title]Backlogより[/title]"
-    #   message += "#{body.createdUser.name}さんによって#{label}されました\n"
-    #   message += "[#{body.project.projectKey}-#{body.content.key_id}]"
-    #   message += "#{body.content.summary}\n"
+        # message = "ID: #{body.id}\n"
+        # message += "noticeName: #{body.noticifications.user.name}\n"
+        # message += "changed: #{body.content.changes[0].field}\n"
+        # message += "changed: #{body.content.changes[0].new_value}\n"
+        # message += "changed: #{body.content.changes[0].old_value}\n"
+        # message += "changed: #{body.content.changes[0].type}\n"
+      message = "[info][title]Backlogより[/title]"
+      message += "#{body.createdUser.name}さんによって#{label}されました\n"
+      message += "[#{body.project.projectKey}-#{body.content.key_id}]"
+      message += "#{body.content.summary}\n"
 
-    #   if body.content.comment?.content?
-    #       message += "#{body.content.comment.content}\n"
-    #   message += "#{url}[/info]"
+      if body.content.comment?.content?
+          message += "#{body.content.comment.content}\n"
+      message += "#{url}[/info]"
 
       console.log 'message = ' + message
 
