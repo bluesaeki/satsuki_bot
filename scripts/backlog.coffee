@@ -7,28 +7,18 @@ module.exports = (robot) ->
     usagi = "lesson-front"
     postFlag = false
 
-    mes = "test:"
-
     for changeObj, index in body.content.changes
-        # mes += "a"
-        mes += changeObj.field
-        # if body.content.changes[index].field == "assigner"
-        #     if body.content.changes[index].new_value == usagi
-        #         postFlag = true
-
-    robot.messageRoom room, mes
+        if changeObj.field == "assigner"
+            if changeObj.new_value == usagi
+                postFlag = true
 
     if !postFlag
         robot.messageRoom room, "（・・・誰かが課題を更新したっぽい・・・）"
         res.end "OK"
         return false
     
-
     try
       url = "#{backlogUrl}view/#{body.project.projectKey}-#{body.content.key_id}"
-
-    #   if body.content.changes?.field?
-    #       message += "#{body.content.comment.content}\n"
 
       if body.content.comment?.id?
           url += "#comment-#{body.content.comment.id}"
