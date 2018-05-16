@@ -7,10 +7,15 @@ module.exports = (robot) ->
     usagi = "lesson-front"
     postFlag = false
 
+    mes = "test:"
+
     for index in body.content.changes
-        if body.content.changes[index].field == "assigner"
-            if body.content.changes[index].new_value == usagi
-                postFlag = true
+        mes += body.content.changes[index].field
+        # if body.content.changes[index].field == "assigner"
+        #     if body.content.changes[index].new_value == usagi
+        #         postFlag = true
+
+    robot.messageRoom room, mes
 
     if !postFlag
         robot.messageRoom room, "（・・・誰かが課題を更新したっぽい・・・）"
