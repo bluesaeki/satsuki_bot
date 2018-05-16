@@ -9,9 +9,9 @@ module.exports = (robot) ->
 
     mes = "test:"
 
-    for index in body.content.changes
-        mes += "a"
-        # mes += body.content.changes[index].field
+    for changeObj, index in body.content.changes
+        # mes += "a"
+        mes += changeObj.field
         # if body.content.changes[index].field == "assigner"
         #     if body.content.changes[index].new_value == usagi
         #         postFlag = true
