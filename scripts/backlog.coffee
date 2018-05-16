@@ -8,7 +8,7 @@ module.exports = (robot) ->
     postFlag = false
 
 
-    if postFlag
+    if !postFlag
         return false
 
     try
