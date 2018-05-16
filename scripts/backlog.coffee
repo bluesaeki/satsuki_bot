@@ -10,7 +10,7 @@ module.exports = (robot) ->
 
     if !postFlag
         robot.messageRoom room, "キョエエエエエエ"
-        res.end "OK"
+        return false
 
     try
       url = "#{backlogUrl}view/#{body.project.projectKey}-#{body.content.key_id}"
