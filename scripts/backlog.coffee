@@ -39,7 +39,7 @@ module.exports = (robot) ->
         message += "※担当が割り振られていない模様\n\n"
 
       message += "lesson-frontにレビュー依頼が来たよ！\n"
-      message += "[info][title]Backlogより[/title]"
+      message += "[info][title]Backlog[/title]"
       message += "#{body.createdUser.name}さんによって課題が更新されました\n"
       message += "[#{body.project.projectKey}-#{body.content.key_id}]"
       message += "#{body.content.summary}\n"
