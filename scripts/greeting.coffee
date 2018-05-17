@@ -30,7 +30,7 @@ module.exports = (robot) ->
             ticket += "[/info]"
         
         if ticket == ""
-          robot.send {room: "106987262,96205045"}, greet + "今日はlesson-frontにチケットはありませんでした！\n" + endGreet
+          robot.send {room: "96205045"}, greet + "今日はlesson-frontにチケットはありませんでした！\n" + endGreet
         else
-          robot.send {room: "106987262,96205045"}, greet + message + ticket + endGreet
+          robot.send {room: "96205045"}, greet + message + ticket + endGreet
   )
