@@ -18,7 +18,7 @@ module.exports = (robot) ->
           message += "#{thisTicket.updatedUser.name}さんによって課題が更新されました\n"
           message += "[#{thisTicket.issueKey}]"
           message += "#{thisTicket.summary}\n"
-          message += "#{backlogUrl}/view/#{thisTicket.issueKey}"
+          message += "#{backlogUrl}view/#{thisTicket.issueKey}"
           message += "[/info]"
 
       msg.send message
