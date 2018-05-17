@@ -7,10 +7,11 @@ cronJob = require('cron').CronJob
 
 module.exports = (robot) ->
   cronjob = new cronJob(
-    cronTime: "0 17 * * * 1-5"
+    cronTime: "0 0 10 * * 1-5"
     start: true
     onTick: ->
-      greet = "皆様おはようございます！\n"
+      greet = "[botテスト]皆様おはようございます！\n"
+      endGreet = "本日もよろしくお願いします！"
 
       request = robot.http(requestUrl)
                     .get()
@@ -29,7 +30,7 @@ module.exports = (robot) ->
             ticket += "[/info]"
         
         if ticket == ""
-          robot.send {room: "106987262"}, greet + "チケットはありませんでした！"
+          robot.send {room: "106987262,96205045"}, greet + "今日はlesson-frontにチケットはありませんでした！\n" + endGreet
         else
-          robot.send {room: "106987262"}, greet + message + ticket 
+          robot.send {room: "106987262,96205045"}, greet + message + ticket + endGreet
   )
