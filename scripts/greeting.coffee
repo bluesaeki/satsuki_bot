@@ -6,12 +6,12 @@ requestUrl = backlogUrl + apiUrl + "?apiKey=" + apiKey + "&assigneeId[]=" + user
 cronJob = require('cron').CronJob
 
 module.exports = (robot) ->
-  cronjob = new cronJob(
+  new cronJob(
     cronTime: "0 0 10 * * 1-5"
     start: true
     onTick: ->
       greet = "[botテスト]皆様おはようございます！\n"
-      endGreet = "本日もよろしくお願いします！"
+      endGreet = "\n本日もよろしくお願いします！"
 
       request = robot.http(requestUrl)
                     .get()
@@ -27,10 +27,17 @@ module.exports = (robot) ->
             ticket += "[#{thisTicket.issueKey}]"
             ticket += "#{thisTicket.summary}\n"
             ticket += "#{backlogUrl}view/#{thisTicket.issueKey}"
-            ticket += "[/info]aaa"
+            ticket += "[/info]"
         
         if ticket == ""
           robot.send {room: "96205045"}, greet + "今日はlesson-frontにチケットはありませんでした！\n" + endGreet
         else
           robot.send {room: "96205045"}, greet + message + ticket + endGreet
+  )
+
+  new cronJob(
+    cronTime: "0 0 19 * * 1-5"
+    start: true
+    onTick: ->
+      robot.send {room: "96205045"}, "[botテスト]定時タイム"
   )
