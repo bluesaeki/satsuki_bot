@@ -27,7 +27,7 @@ module.exports = (robot) ->
             ticket += "[#{thisTicket.issueKey}]"
             ticket += "#{thisTicket.summary}\n"
             ticket += "#{backlogUrl}view/#{thisTicket.issueKey}"
-            ticket += "[/info]"
+            ticket += "[/info]aaa"
         
         if ticket == ""
           robot.send {room: "96205045"}, greet + "今日はlesson-frontにチケットはありませんでした！\n" + endGreet
