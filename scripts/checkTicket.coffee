@@ -21,4 +21,11 @@ module.exports = (robot) ->
           message += "#{backlogUrl}view/#{thisTicket.issueKey}"
           message += "[/info]"
 
-      msg.send message
+      # msg.send json
+
+      if message == ""
+        # robot.send {room: "96205045"}, greet + "今日はlesson-frontにチケットはありませんでした！\n" + endGreet
+        msg.send "レビュー依頼はないよ"
+      else
+        # robot.send {room: "96205045"}, greet + message + ticket + endGreet
+        msg.send message
