@@ -6,7 +6,7 @@ requestUrl = backlogUrl + apiUrl + "?apiKey=" + apiKey + "&assigneeId[]=" + user
 cronJob = require('cron').CronJob
 
 module.exports = (robot) ->
-  new cronJob(
+  cronjob1 = new cronJob(
     cronTime: "0 0 10 * * 1-5"
     start: true
     onTick: ->
@@ -35,9 +35,9 @@ module.exports = (robot) ->
           robot.send {room: "96205045"}, greet + message + ticket + endGreet
   )
 
-  new cronJob(
-    cronTime: "0 0 19 * * 1-5"
+  cronjob2 = new cronJob(
+    cronTime: "0 * 10 * * 1-5"
     start: true
     onTick: ->
-      robot.send {room: "96205045"}, "[botテスト]定時タイム"
+      robot.send {room: "106987262"}, "[botテスト]定時タイム"
   )
