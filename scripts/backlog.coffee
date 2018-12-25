@@ -10,7 +10,7 @@ member_y_samoto = ["上田　祐平"]
 member_n_ishikawa = ["大石　智之", "瀬脇　夏美"]
 member_y_fujita = ["清水　彩美", "吉川　実由記"]
 member_a_saeki = ["平田　まりこ", "佐々木　麗子"]
-menber_t_inoue = ["小谷　明之"]
+member_t_inoue = ["小谷　明之"]
 
 menter_a = "[To:2024961] [To:2362112] [To:2112520] [To:2486076] Aチームの皆さん！\n\n"
 menter_b = "[To:2110187] [To:2069944] [To:2178425] Bチームの皆さん！\n\n"
@@ -51,6 +51,8 @@ module.exports = (robot) ->
 
       if body.createdUser.name in member_s_sugimoto
         message += menter_s_sugimoto
+      else if body.createdUser.name in member_t_inoue
+        message += menter_t_inoue
       else if body.createdUser.name in member_s_furukawa
         message += menter_s_furukawa
       else if body.createdUser.name in member_r_imae
